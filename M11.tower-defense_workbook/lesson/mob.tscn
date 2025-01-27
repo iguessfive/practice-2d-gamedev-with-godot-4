@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjg6tcv3y65kk"]
+
+[ext_resource type="Script" path="res://lesson/mob.gd" id="1_m053s"]
+[ext_resource type="Texture2D" uid="uid://c06dsq2gfbcd8" path="res://mobs/mouse_01.png" id="2_kkbqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hp4mn"]
+radius = 40.0125
+
+[node name="Mob" type="Area2D"]
+script = ExtResource("1_m053s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 0)
+texture = ExtResource("2_kkbqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hp4mn")
