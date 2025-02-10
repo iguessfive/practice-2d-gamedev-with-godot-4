@@ -1,17 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjqterkt6qbeo"]
+[gd_scene load_steps=3 format=3 uid="uid://bjqterkt6qbeo"]
 
 [ext_resource type="Texture2D" uid="uid://cv328i4tw2cc1" path="res://turrets/weapons/simple_cannon.png" id="1_t7h7y"]
 [ext_resource type="Script" path="res://lesson/simple_cannon.gd" id="2_blbk0"]
-[ext_resource type="Script" path="res://lesson/weapon.gd" id="3_jnpei"]
-[ext_resource type="PackedScene" uid="uid://bjg6tcv3y65kk" path="res://lesson/mob.tscn" id="4_n7pi4"]
 
 [node name="SimpleCannon" type="Sprite2D"]
 texture = ExtResource("1_t7h7y")
 script = ExtResource("2_blbk0")
 
-[node name="Weapon" type="Sprite2D" parent="."]
-script = ExtResource("3_jnpei")
-
-[node name="Mob" parent="Weapon" instance=ExtResource("4_n7pi4")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="RocketSpawnPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(59, 0)
