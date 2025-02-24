@@ -1,4 +1,4 @@
-class_name Cannon extends Weapon
+class_name SimpleCannon extends Weapon
 
 @onready var _spawn_point: Marker2D = %RocketSpawnPoint
 

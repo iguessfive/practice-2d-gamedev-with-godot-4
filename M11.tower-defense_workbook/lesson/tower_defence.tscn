@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://c4mywawpkp4gi"]
+[gd_scene load_steps=4 format=4 uid="uid://c4mywawpkp4gi"]
 
 [ext_resource type="TileSet" uid="uid://buxud23yyccyi" path="res://map/tileset.tres" id="1_tjo46"]
-[ext_resource type="Script" path="res://lesson/mob_path_follow.gd" id="2_nr584"]
-[ext_resource type="PackedScene" uid="uid://bjg6tcv3y65kk" path="res://lesson/mob.tscn" id="3_ynyu4"]
+[ext_resource type="Script" path="res://lesson/mob_spawner.gd" id="2_0ndar"]
 
 [sub_resource type="Curve2D" id="Curve2D_4g130"]
 _data = {
@@ -20,12 +19,9 @@ tile_set = ExtResource("1_tjo46")
 tile_map_data = PackedByteArray("AAACAAgAAAAIAAIAAAAAAAUAAAACAAAAAAABAAUAAAACAAAAAAACAAUAAAABAAEAAAACAAQAAAACAAEAAAACAAMAAAACAAEAAAACAAIAAAAAAAAAAAADAAIAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAGAAQAAAACAAEAAAAGAAMAAAACAAEAAAAGAAIAAAABAAAAAAAGAAUAAAACAAEAAAAGAAYAAAAAAAEAAAAHAAYAAAACAAAAAAAIAAYAAAACAAAAAAAJAAYAAAACAAAAAAAKAAYAAAACAAAAAAALAAYAAAABAAEAAAALAAUAAAACAAEAAAALAAQAAAAAAAAAAAAMAAQAAAACAAAAAAANAAQAAAACAAAAAAAOAAQAAAACAAAAAAAPAAQAAAAFAAAAAAD//wUAAAAGAAEAAAA=")
 tile_set = ExtResource("1_tjo46")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="MobSpawner" type="Node2D" parent="."]
+script = ExtResource("2_0ndar")
+
+[node name="MobPath2D" type="Path2D" parent="MobSpawner"]
+unique_name_in_owner = true
 curve = SubResource("Curve2D_4g130")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(1984, 576)
-rotation = 3.14159
-script = ExtResource("2_nr584")
-
-[node name="Mob" parent="Path2D/PathFollow2D" instance=ExtResource("3_ynyu4")]

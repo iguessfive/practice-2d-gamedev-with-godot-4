@@ -1,5 +1,5 @@
 @icon("res://icons/icon_rocket.svg")
-class_name Rocket extends Area2D
+class_name SimpleRocket extends Area2D
 
 @export var speed:float = 600.0
 @export var max_distance:float = 600.0

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djrg88mwdx470"]
+
+[ext_resource type="Script" path="res://lesson/mob_path_follow.gd" id="1_w3j8f"]
+[ext_resource type="PackedScene" uid="uid://bjg6tcv3y65kk" path="res://lesson/mob.tscn" id="2_p6usj"]
+
+[node name="MobPathFollow2D" type="PathFollow2D"]
+position = Vector2(1984, 576)
+rotation = 3.14159
+script = ExtResource("1_w3j8f")
+
+[node name="Mob" parent="." instance=ExtResource("2_p6usj")]
