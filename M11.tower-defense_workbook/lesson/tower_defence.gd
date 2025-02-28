@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	_player_hurt_box.area_entered.connect(
-		func(other_area: Area2D) -> void:
+		func(_other_area: Area2D) -> void:
 			PlayerUI.health -= 1
 	)
 	

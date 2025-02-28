@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://lesson/simple_cannon.gd" id="2_blbk0"]
 
 [node name="SimpleCannon" type="Sprite2D"]
-position = Vector2(959, 413)
 texture = ExtResource("1_t7h7y")
 script = ExtResource("2_blbk0")
 

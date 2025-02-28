@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://c4mywawpkp4gi"]
+[gd_scene load_steps=7 format=4 uid="uid://c4mywawpkp4gi"]
 
 [ext_resource type="Script" path="res://lesson/tower_defence.gd" id="1_mmk5p"]
 [ext_resource type="TileSet" uid="uid://buxud23yyccyi" path="res://map/tileset.tres" id="1_tjo46"]
 [ext_resource type="Script" path="res://lesson/mob_spawner.gd" id="2_0ndar"]
+[ext_resource type="Script" path="res://lesson/turrent.gd" id="4_3ob4q"]
 
 [sub_resource type="Curve2D" id="Curve2D_4g130"]
 _data = {
@@ -38,3 +39,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
 shape = SubResource("CircleShape2D_bby3q")
+
+[node name="Turrent" type="Sprite2D" parent="."]
+position = Vector2(1088, 576)
+script = ExtResource("4_3ob4q")

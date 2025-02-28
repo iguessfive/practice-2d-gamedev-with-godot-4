@@ -18,7 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://autoloads/global.gd"
-PlayerUI="*res://lesson/player_ui.gd"
+PlayerUI="*res://lesson/player_ui.tscn"
 
 [debug]
 
