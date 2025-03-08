@@ -1,5 +1,5 @@
 @tool
-class_name Turrent extends Sprite2D
+class_name Turret extends Sprite2D
 
 # create an export variable to hold weapon_scene with a setter and preload with a scene
 @export var weapon_scene: PackedScene = preload("res://lesson/simple_cannon.tscn"): set = set_weapon_scene
