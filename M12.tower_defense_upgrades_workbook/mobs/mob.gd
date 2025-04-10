@@ -8,11 +8,11 @@ class_name Mob extends Area2D
 @export var health := 100.0: set = set_health
 @export var damage := 10.0
 
+@warning_ignore("unused_private_class_variable")
 var _current_speed := speed
 
 @onready var _bar_pivot: Node2D = %BarPivot
 @onready var _health_bar: ProgressBar = %HealthBar
-
 
 func _ready() -> void:
 	#ANCHOR:setup_health
@@ -23,8 +23,6 @@ func _ready() -> void:
 	area_entered.connect(func (_other_area: Area2D) -> void:
 		_die()
 	)
-
-
 
 func _physics_process(_delta: float) -> void:
 	_bar_pivot.global_rotation = 0.0

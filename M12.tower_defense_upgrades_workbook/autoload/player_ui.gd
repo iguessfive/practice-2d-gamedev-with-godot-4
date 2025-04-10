@@ -6,7 +6,6 @@ var health := 5: set = set_health
 
 @onready var _heart_h_box_container: HBoxContainer = %HBoxContainer
 
-
 func _ready() -> void:
 	set_health(health)
 

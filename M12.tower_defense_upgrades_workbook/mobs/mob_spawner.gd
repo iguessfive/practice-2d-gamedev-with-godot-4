@@ -15,15 +15,19 @@ class_name MobSpawner extends Node2D
 var _timer := Timer.new()
 var _remaining_mobs := mobs_count
 
-@onready var _path: Path2D = get_node("Path2D")
-
+var _path: Path2D = Path2D.new()
 
 func _ready() -> void:
 	add_child(_timer)
 	_timer.timeout.connect(spawn_mob)
 	_timer.wait_time = spawn_interval
 	_timer.start()
-
+	
+	# set path to be indepedant in viewport rendering by setting to top level
+	_path.top_level = true
+	add_child(_path)
+	_path.curve = Curve2D.new()
+	# add _path to scene tree and create a new curve_2d in curve property
 
 func spawn_mob() -> void:
 	#ANCHOR:spawn_one_mob
@@ -40,3 +44,16 @@ func spawn_mob() -> void:
 	if _remaining_mobs == 0:
 		_timer.stop()
 	#END:mob_count
+
+func initialise_path(points: PackedVector2Array) -> void:
+	_path.curve.clear_points()
+	for point in points:
+		_path.curve.add_point(point)
+	
+	
+	
+	
+	
+	
+	
+	

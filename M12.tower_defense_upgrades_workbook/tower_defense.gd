@@ -21,6 +21,11 @@ func _ready() -> void:
 			PlayerUI.health = 5
 	)
 	#END:health_depleted
+	
+	for current_child: Node in get_children():
+		if current_child is MobSpawner:
+			var path: PackedVector2Array = _roads.find_path_to_target(current_child, _player_hurtbox)
+			current_child.initialise_path(path)
 
 
 func _unhandled_input(event: InputEvent) -> void:
