@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://knh1we1m8ig0"]
+[gd_scene load_steps=8 format=4 uid="uid://knh1we1m8ig0"]
 
 [ext_resource type="Script" uid="uid://b34l3rx484vf1" path="res://tower_defense.gd" id="1_5303e"]
 [ext_resource type="TileSet" uid="uid://buxud23yyccyi" path="res://map/tileset.tres" id="2_mnbyj"]
-[ext_resource type="Script" uid="uid://jnasv8cn8sro" path="res://lessons/roads.gd" id="3_l7pho"]
+[ext_resource type="Script" uid="uid://jnasv8cn8sro" path="res://map/roads.gd" id="3_l7pho"]
 [ext_resource type="Script" uid="uid://mfdv3fmedo8e" path="res://mobs/mob_spawner.gd" id="4_5ik0o"]
-[ext_resource type="Texture2D" uid="uid://bqar8f6v77rel" path="res://icon.png" id="4_ad5we"]
+[ext_resource type="PackedScene" uid="uid://d2bk0jsgdwdom" path="res://mobs/mob_car.tscn" id="5_4xjh4"]
+[ext_resource type="PackedScene" uid="uid://bpmcyj1xow6w" path="res://player/coin_collector.tscn" id="5_l7pho"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eaj7k"]
 radius = 31.1448
@@ -20,23 +21,30 @@ tile_set = ExtResource("2_mnbyj")
 [node name="Roads" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD//wYAAAAGAAEAAAAAAAYAAAACAAAAAAABAAYAAAACAAAAAAACAAYAAAACAAAAAAADAAYAAAABAAEAAAADAAUAAAACAAEAAAADAAQAAAACAAEAAAADAAMAAAACAAEAAAADAAIAAAAAAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAGAAIAAAACAAAAAAAHAAIAAAABAAAAAAAHAAMAAAACAAEAAAAHAAQAAAACAAEAAAAHAAUAAAACAAEAAAAHAAYAAAAAAAEAAAAIAAYAAAACAAAAAAAJAAYAAAACAAAAAAAKAAYAAAACAAAAAAALAAYAAAABAAEAAAALAAUAAAACAAEAAAALAAQAAAACAAEAAAALAAMAAAACAAEAAAALAAIAAAAAAAAAAAAMAAIAAAACAAAAAAANAAIAAAACAAAAAAAOAAIAAAACAAAAAAAPAAIAAAAFAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wYAAAAIAAIAAAAPAAIAAAAIAAIAAAAIAAQAAAAEAAEAAAAHAAQAAAACAAAAAAAAAAQAAAACAAAAAAALAAMAAAAIAAIAAAAJAAMAAAAIAAIAAAAOAAcAAAACAAAAAAANAAcAAAACAAAAAAAMAAcAAAACAAAAAAALAAcAAAACAAAAAAAKAAcAAAACAAAAAAAJAAcAAAACAAAAAAAIAAcAAAAAAAEAAAAIAAYAAAACAAEAAAAIAAUAAAACAAEAAAAOAAEAAAACAAAAAAANAAEAAAACAAAAAAAMAAEAAAACAAAAAAALAAEAAAACAAAAAAAKAAEAAAACAAAAAAAJAAEAAAACAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAACAAEAAAAIAAMAAAACAAEAAAAFAAQAAAACAAAAAAAGAAQAAAACAAAAAAAEAAQAAAACAAAAAAADAAQAAAACAAAAAAACAAQAAAACAAAAAAABAAQAAAACAAAAAAD//wQAAAAGAAEAAAAPAAEAAAAFAAAAAAAPAAcAAAAFAAAAAAA=")
 tile_set = ExtResource("2_mnbyj")
 script = ExtResource("3_l7pho")
 
 [node name="MobSpawner" type="Node2D" parent="."]
-position = Vector2(1984, 320)
+position = Vector2(1984, 192)
 script = ExtResource("4_5ik0o")
+spawn_interval = 1.5
+
+[node name="MobSpawner2" type="Node2D" parent="."]
+position = Vector2(1984, 960)
+script = ExtResource("4_5ik0o")
+mob_packed_scene = ExtResource("5_4xjh4")
 spawn_interval = 1.5
 
 [node name="PlayerHurtbox" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-64, 832)
+position = Vector2(-64, 576)
 collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerHurtbox"]
-texture = ExtResource("4_ad5we")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox"]
 shape = SubResource("CircleShape2D_eaj7k")
+
+[node name="CoinCollector" parent="." instance=ExtResource("5_l7pho")]

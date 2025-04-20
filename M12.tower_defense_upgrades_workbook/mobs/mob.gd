@@ -7,6 +7,7 @@ class_name Mob extends Area2D
 @export var speed := 100.0
 @export var health := 100.0: set = set_health
 @export var damage := 10.0
+@export var coins := 10.0
 
 @warning_ignore("unused_private_class_variable")
 var _current_speed := speed
@@ -35,7 +36,7 @@ func set_health(new_health: float) -> void:
 		_health_bar.value = health
 
 	if health <= 0.0:
-		_die()
+		_die(true)
 
 
 func take_damage(amount: float) -> void:
@@ -51,5 +52,11 @@ func take_damage(amount: float) -> void:
 	#END:display_damage
 
 
-func _die() -> void:
+func _die(was_killed: bool = false) -> void:
+	if was_killed:
+		for current_index: int in coins:
+			var coin: Coin = preload("res://mobs/coin.tscn").instantiate()
+			get_tree().current_scene.add_child.call_deferred(coin)
+			coin.global_position = global_position
+	
 	queue_free()

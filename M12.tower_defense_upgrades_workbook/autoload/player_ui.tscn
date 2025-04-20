@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf7h0bevr04op"]
+[gd_scene load_steps=6 format=3 uid="uid://cf7h0bevr04op"]
 
 [ext_resource type="Script" uid="uid://u4rcmfgqkf7c" path="res://autoload/player_ui.gd" id="1_pkc2a"]
 [ext_resource type="Texture2D" uid="uid://cr7d6dy88ohwf" path="res://ui/health_bar_background.png" id="3_1r7si"]
+[ext_resource type="Texture2D" uid="uid://cgaxlo44jh6vm" path="res://mobs/coin.png" id="4_3miud"]
 [ext_resource type="Texture2D" uid="uid://ofew82gbqai4" path="res://ui/heart.png" id="4_5uram"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3vykx"]
+font_size = 48
 
 [node name="PlayerUI" type="Control"]
 z_index = 100
@@ -54,3 +58,24 @@ texture = ExtResource("4_5uram")
 [node name="Heart5" type="TextureRect" parent="TextureRect/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("4_5uram")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 251.0
+offset_bottom = 195.0
+theme_override_constants/separation = 10
+
+[node name="CoinIcon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_3miud")
+expand_mode = 3
+
+[node name="CoinLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+text = "1000"
+label_settings = SubResource("LabelSettings_3vykx")

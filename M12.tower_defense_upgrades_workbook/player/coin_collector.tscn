@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmcyj1xow6w"]
+
+[ext_resource type="Script" uid="uid://qp6llu8bd8r1" path="res://player/coin_collector.gd" id="1_hkf5q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8e1cu"]
+radius = 40.0
+
+[node name="CoinCollector" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_hkf5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8e1cu")
