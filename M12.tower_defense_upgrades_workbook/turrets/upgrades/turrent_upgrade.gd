@@ -1,4 +1,4 @@
-class_name TurentUpgrade extends Resource
+class_name TurretUpgrade extends Resource
 
 # cost to upgrade
 # what can be upgraded:

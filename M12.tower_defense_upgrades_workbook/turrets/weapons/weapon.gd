@@ -35,7 +35,6 @@ func _set_stats(new_stats: WeaponStats) -> void:
 	stats = new_stats
 	if stats != null: # checking if the resource exsits
 		stats.changed.connect(_update_from_stats)
-		print(stats)
 		
 	
 func _update_from_stats() -> void:

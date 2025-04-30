@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerUI="*res://autoload/player_ui.tscn"
+UpgradeDatabase="*res://autoload/upgrade_database.gd"
 
 [debug]
 
