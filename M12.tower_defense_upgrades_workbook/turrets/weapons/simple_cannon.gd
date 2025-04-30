@@ -28,4 +28,5 @@ func _attack() -> void:
 	var rocket: Node2D = preload("projectiles/simple_rocket.tscn").instantiate()
 	get_tree().current_scene.add_child(rocket)
 	rocket.global_transform = _spawn_point.global_transform
+	rocket.damage = stats.damage
 	#END:instantiate_and_place_rocket

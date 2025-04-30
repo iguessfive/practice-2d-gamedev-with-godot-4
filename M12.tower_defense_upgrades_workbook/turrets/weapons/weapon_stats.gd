@@ -12,6 +12,8 @@ class_name WeaponStats extends Resource
 @export var damage := 10.0
 ## How fast the weapon can rotate in radians per second.
 @export var max_rotation_speed := 2.0 * PI
+
+
 ## If the weapon applies a status effect, this represents how strongly the effect is applied.
 ## This value is interpreted by the weapon itself.
 @export var effect_intensity := 0.3

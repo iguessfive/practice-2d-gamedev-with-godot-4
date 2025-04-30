@@ -13,14 +13,37 @@ class_name Weapon extends Sprite2D
 
 const PHYSICS_LAYER_MOBS = 2
 
-@export var mob_detection_range := 400.0
-@export var attack_rate := 1.0
-@export var max_rotation_speed := 2.0 * PI
+var stats := WeaponStats.new(): set = _set_stats
 
 var _area_2d := _create_area_2d()
 var _collision_shape_2d := _create_collision_shape_2d()
 var _timer := _create_timer()
 
+func _set_stats(new_stats: WeaponStats) -> void:
+	# if the stats are empty
+	# then chek is the stat changed signal is connected
+	# if so then disconnet the the `update from stats` function
+	
+	# assign stats to passed in argument new_stats
+	# check if stats is not empty
+	# connect the stats changed to command func
+	
+	if stats != null:
+		if stats.changed.is_connected(_update_from_stats):
+			stats.changed.disconnect(_update_from_stats)
+	
+	stats = new_stats
+	if stats != null: # checking if the resource exsits
+		stats.changed.connect(_update_from_stats)
+		print(stats)
+		
+	
+func _update_from_stats() -> void:
+	# update the nodes based on data 
+	# assign attack rate to timer wait time
+	_timer.wait_time = 1.0 / stats.attack_rate
+	# collision shape radius to mob detection range
+	(_collision_shape_2d.shape as CircleShape2D).radius = stats.mob_detection_radius
 
 func _ready() -> void:
 	#ANCHOR:add_area
@@ -41,7 +64,9 @@ func _ready() -> void:
 	#ANCHOR:z_index
 	z_index = 10
 	#END:z_index
-
+	
+	_set_stats(stats)
+	_update_from_stats() # called only when changed, so needed at start
 
 func _create_area_2d() -> Area2D:
 	var area := Area2D.new()
@@ -49,17 +74,16 @@ func _create_area_2d() -> Area2D:
 	area.monitorable = false
 	return area
 
-
 func _create_collision_shape_2d() -> CollisionShape2D:
 	var collision_shape := CollisionShape2D.new()
 	collision_shape.shape = CircleShape2D.new()
-	collision_shape.shape.radius = mob_detection_range
+	collision_shape.shape.radius = stats.mob_detection_radius
 	return collision_shape
 
 
 func _create_timer() -> Timer:
 	var timer := Timer.new()
-	timer.wait_time = 1.0 / attack_rate
+	timer.wait_time = 1.0 / stats.attack_rate
 	return timer
 
 
@@ -99,5 +123,5 @@ func _rotate_toward_target(target: Mob) -> void:
 	rotation = rotate_toward(
 		rotation,
 		target_angle,
-		max_rotation_speed * get_physics_process_delta_time()
+		stats.max_rotation_speed * get_physics_process_delta_time()
 	)

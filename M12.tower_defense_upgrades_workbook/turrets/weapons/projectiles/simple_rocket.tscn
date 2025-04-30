@@ -11,7 +11,6 @@ collision_layer = 0
 monitorable = false
 script = ExtResource("1_w03jc")
 speed = 800.0
-damage = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
