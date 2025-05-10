@@ -28,7 +28,6 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	_bar_pivot.global_rotation = 0.0
 
-
 func set_health(new_health: float) -> void:
 	health = maxf(0.0, new_health)
 

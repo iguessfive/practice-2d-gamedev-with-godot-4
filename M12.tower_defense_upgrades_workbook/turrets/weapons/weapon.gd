@@ -91,30 +91,20 @@ func _attack() -> void:
 	return
 
 
-## The weapon does not detect mobs directly, as mobs themselves are not physics nodes. Instead, it detects their hurtbox.
-## That's why the function looks for and returns an Area2D.
-func _find_closest_target() -> Mob:
-	#ANCHOR:closest_variables
+func _find_closest_target()-> Mob:
+	var targets = _area_2d.get_overlapping_areas()
+	
 	var closest_target: Mob = null
-	var smallest_distance := INF
-	#END:closest_variables
-
-	#ANCHOR:closest_for_distance
-	var targets := _area_2d.get_overlapping_areas()
-	#ANCHOR:closest_for_loop
+	var smallest_distance = INF
+	
 	for target: Area2D in targets:
-		#END:closest_for_loop
-		var distance_to_target := global_position.distance_to(target.global_position)
-		#END:closest_for_distance
-		#ANCHOR:closest_if_distance
+		var distance_to_target = global_position.distance_to(target.global_position)
 		if distance_to_target < smallest_distance:
-			smallest_distance = distance_to_target
 			closest_target = target as Mob
-			#END:closest_if_distance
-
-	#ANCHOR:closest_return
+			smallest_distance = distance_to_target
+	
 	return closest_target
-#END:closest_return
+	
 
 
 func _rotate_toward_target(target: Mob) -> void:

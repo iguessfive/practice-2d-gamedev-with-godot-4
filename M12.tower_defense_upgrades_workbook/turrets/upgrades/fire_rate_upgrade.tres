@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TurentUpgrade" load_steps=2 format=3 uid="uid://kwiuclruo1r6"]
+[gd_resource type="Resource" script_class="TurretUpgrade" load_steps=2 format=3 uid="uid://kwiuclruo1r6"]
 
 [ext_resource type="Script" uid="uid://b21c2q1kwo11o" path="res://turrets/upgrades/turrent_upgrade.gd" id="1_tr2f0"]
 

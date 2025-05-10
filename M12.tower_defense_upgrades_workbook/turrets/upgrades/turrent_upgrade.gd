@@ -16,6 +16,10 @@ class_name TurretUpgrade extends Resource
 @export var replacement_weapon: PackedScene = null
 
 func apply_to_turret(turrent: Turret) -> void:
+	if replacement_weapon != null:
+		turrent.set_weapon_scene(replacement_weapon)
+	
+	
 	# increase the level of turrent by 1
 	turrent.level += 1
 	# upgarde the turrent passed in by the values in this turrent upgrade resource
@@ -28,6 +32,3 @@ func apply_to_turret(turrent: Turret) -> void:
 	
 	# only if the replacement weapon is not null
 	# then set the weapon to the replacement weapon
-	if replacement_weapon != null:
-		turrent.set_weapon_scene(replacement_weapon)
-	

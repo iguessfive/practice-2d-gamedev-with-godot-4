@@ -20,7 +20,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Mob" type="Area2D"]
+[node name="Mob" type="Area2D" groups=["mob"]]
 collision_mask = 2
 script = ExtResource("1_36o6y")
 

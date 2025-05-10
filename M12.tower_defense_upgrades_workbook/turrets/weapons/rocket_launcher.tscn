@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6dabab8p8g1x"]
+
+[ext_resource type="Texture2D" uid="uid://hwqaxrtlk8lo" path="res://turrets/weapons/rocket_launcher.png" id="1_rr723"]
+[ext_resource type="Script" uid="uid://dqfflxvvbvbja" path="res://turrets/weapons/rocket_launcher.gd" id="2_m52t5"]
+
+[node name="RocketLauncher" type="Sprite2D"]
+z_index = 10
+texture = ExtResource("1_rr723")
+script = ExtResource("2_m52t5")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(64, 0)
