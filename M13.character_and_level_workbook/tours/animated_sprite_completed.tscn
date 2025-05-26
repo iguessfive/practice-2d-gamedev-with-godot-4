@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dfbfv0gxetook"]
 
-[ext_resource type="Texture2D" uid="uid://d07un6ita4esd" path="res://assets/lucy/idle/004.png" id="2_7fijd"]
-[ext_resource type="Texture2D" uid="uid://ckdstkswgy7yp" path="res://assets/lucy/idle/003.png" id="3_g8ipx"]
+[ext_resource type="Texture2D" uid="uid://d07un6ita4esd" path="res://assets/lucy/idle/idle.png" id="2_7fijd"]
+[ext_resource type="Texture2D" uid="uid://ckdstkswgy7yp" path="res://assets/lucy/idle/blinking.png" id="3_g8ipx"]
 [ext_resource type="Texture2D" uid="uid://pk8wb3owg84f" path="res://assets/lucy/run/005.png" id="4_m3xrn"]
 [ext_resource type="Texture2D" uid="uid://dw8wfsxexlcit" path="res://assets/lucy/run/004.png" id="5_uroeg"]
 [ext_resource type="Texture2D" uid="uid://c030uv7w2bgs3" path="res://assets/lucy/run/003.png" id="6_hh7dr"]
@@ -70,4 +70,6 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wmgir")
-animation = &"Fall"
+animation = &"Run"
+frame = 3
+frame_progress = 0.824362
