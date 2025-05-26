@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg8hwpl82sqni"]
+
+[ext_resource type="Texture2D" uid="uid://cob6sxpo01uqa" path="res://ui/cross_large.svg" id="1_aqee1"]
+[ext_resource type="Texture2D" uid="uid://cv328i4tw2cc1" path="res://turrets/weapons/simple_cannon.png" id="1_pm86u"]
+[ext_resource type="Texture2D" uid="uid://28rkffksa53r" path="res://turrets/turret_base.png" id="2_u0ehe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0ehe"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_bottom = 10.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="TurretStatsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 211.0
+offset_bottom = 279.0
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ExitTextureButton" type="TextureButton" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("1_aqee1")
+texture_pressed = ExtResource("1_aqee1")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_u0ehe")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -20.0
+offset_right = 63.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pm86u")
+stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_u0ehe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MaxDetectionInfoLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scanning Area: NaN"
+vertical_alignment = 1
+
+[node name="AttackRateInfoLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Attack Rate: NaN"
+vertical_alignment = 1
+
+[node name="DamageInfoLabel" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Damage: NaN"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UpgradeButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Upgrade"
+
+[node name="SellButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Sell"

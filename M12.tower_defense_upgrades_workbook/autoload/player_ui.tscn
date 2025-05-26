@@ -9,6 +9,7 @@
 font_size = 48
 
 [node name="PlayerUI" type="Control"]
+visible = false
 z_index = 100
 layout_mode = 3
 anchors_preset = 15
