@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb5r31ne50xg2"]
+[gd_scene load_steps=18 format=3 uid="uid://cb5r31ne50xg2"]
 
+[ext_resource type="Script" uid="uid://cr82pd70rm4mu" path="res://player/player.gd" id="1_ebec5"]
 [ext_resource type="Texture2D" uid="uid://ckdstkswgy7yp" path="res://assets/lucy/idle/blinking.png" id="1_rgyib"]
 [ext_resource type="Texture2D" uid="uid://d07un6ita4esd" path="res://assets/lucy/idle/idle.png" id="2_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://cbforegb4pthq" path="res://assets/lucy/fall.png" id="2_kb6p2"]
 [ext_resource type="Texture2D" uid="uid://1w6y4aov8x8i" path="res://assets/lucy/idle/looking_right.png" id="3_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://byi5d5liq08bu" path="res://assets/lucy/run/000.png" id="3_8t03j"]
 [ext_resource type="Texture2D" uid="uid://cqhwdqlpfm50e" path="res://assets/lucy/run/001.png" id="4_2ieo8"]
@@ -10,10 +12,19 @@
 [ext_resource type="Texture2D" uid="uid://cxslh8teup70q" path="res://assets/lucy/idle/looking_front.png" id="5_yllr7"]
 [ext_resource type="Texture2D" uid="uid://c030uv7w2bgs3" path="res://assets/lucy/run/003.png" id="6_yllr7"]
 [ext_resource type="Texture2D" uid="uid://dw8wfsxexlcit" path="res://assets/lucy/run/004.png" id="7_kb6p2"]
+[ext_resource type="Texture2D" uid="uid://bn7d5cc8j3hv6" path="res://assets/lucy/jump.png" id="7_yllr7"]
 [ext_resource type="Texture2D" uid="uid://pk8wb3owg84f" path="res://assets/lucy/run/005.png" id="8_wodsf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_32hag"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kb6p2")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 20.0,
 "texture": ExtResource("2_hg6s5")
@@ -48,6 +59,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_yllr7")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_8t03j")
 }, {
 "duration": 1.0,
@@ -73,15 +92,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ieo8"]
 size = Vector2(8, 12)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kb6p2"]
+font_size = 6
+
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ebec5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_32hag")
-animation = &"idle"
-frame = 3
-frame_progress = 0.606306
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_2ieo8")
+
+[node name="StateLabel" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.5
+offset_top = -33.0
+offset_right = 7.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "State"
+label_settings = SubResource("LabelSettings_kb6p2")

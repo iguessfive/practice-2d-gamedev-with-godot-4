@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://7hdpmnwe0m7k" path="res://assets/lucy/run/002.png" id="14_mi3jv"]
 [ext_resource type="Texture2D" uid="uid://cqhwdqlpfm50e" path="res://assets/lucy/run/001.png" id="15_ten2k"]
 [ext_resource type="Texture2D" uid="uid://byi5d5liq08bu" path="res://assets/lucy/run/000.png" id="16_yi0gm"]
-[ext_resource type="Texture2D" uid="uid://cdg77ke4d61ji" path="res://assets/lucy/lucy_hurt.png" id="17_ix8bq"]
+[ext_resource type="Texture2D" uid="uid://cdg77ke4d61ji" path="res://assets/lucy/hurt.png" id="17_ix8bq"]
 [ext_resource type="Texture2D" uid="uid://vcwnftmgqlr4" path="res://assets/lucy/dust_sprite.png" id="18_ov4sn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dx5ib"]

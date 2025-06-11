@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bdu04fla2ey5c"]
+[gd_scene load_steps=22 format=4 uid="uid://bdu04fla2ey5c"]
 
 [ext_resource type="Texture2D" uid="uid://dck3vemhurilk" path="res://assets/worlds/mushroom_world/ground_tileset.png" id="1_2orkt"]
 [ext_resource type="Texture2D" uid="uid://b44p7t8avtaqj" path="res://assets/worlds/mushroom_world/ivy_auto_tile.png" id="2_aicyk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0nnsqjv4xyq7" path="res://assets/worlds/mushroom_world/ground_objects.png" id="7_fedht"]
 [ext_resource type="Texture2D" uid="uid://b5vgdjw26fy0q" path="res://assets/worlds/mushroom_world/mushrooms_background.png" id="8_4c15r"]
 [ext_resource type="Texture2D" uid="uid://8veo64s7ijs2" path="res://assets/worlds/mushroom_world/ground_slopes_tileset.png" id="9_ait7k"]
+[ext_resource type="PackedScene" uid="uid://cb5r31ne50xg2" path="res://player/player.tscn" id="11_2orkt"]
 [ext_resource type="PackedScene" uid="uid://c10ucj5wvv6hj" path="res://platform/platform.tscn" id="11_v7sqt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txc2e"]
@@ -1024,3 +1025,7 @@ height = 176.0
 position = Vector2(312, 104)
 width = 320.0
 height = 96.0
+
+[node name="Player" parent="." instance=ExtResource("11_2orkt")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

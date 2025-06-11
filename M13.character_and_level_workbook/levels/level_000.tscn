@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpw5h4m8p48uk"]
+
+[ext_resource type="PackedScene" uid="uid://cb5r31ne50xg2" path="res://player/player.tscn" id="1_8i83m"]
+[ext_resource type="PackedScene" uid="uid://c10ucj5wvv6hj" path="res://platform/platform.tscn" id="2_4uxqt"]
+[ext_resource type="PackedScene" uid="uid://b22hgb0m0jesy" path="res://background/background.tscn" id="3_4uxqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nav82"]
+resource_local_to_scene = true
+size = Vector2(128, 104)
+
+[node name="Level000" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("3_4uxqt")]
+z_index = -10
+position = Vector2(1, 56)
+
+[node name="Player" parent="." instance=ExtResource("1_8i83m")]
+position = Vector2(13, 5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Platform004" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(-170, 63)
+width = 304.0
+height = 48.0
+
+[node name="Platform001" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(1, 56)
+height = 104.0
+
+[node name="CollisionShape2D" parent="Platform001" index="0"]
+shape = SubResource("RectangleShape2D_nav82")
+
+[node name="Sprite" parent="Platform001" index="1"]
+offset_top = -52.0
+offset_bottom = 52.0
+
+[node name="Platform002" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(147, 85)
+width = 224.0
+height = 64.0
+
+[node name="Platform003" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(489, 119)
+width = 512.0
+height = 72.0
+
+[editable path="Background"]
+[editable path="Platform001"]
