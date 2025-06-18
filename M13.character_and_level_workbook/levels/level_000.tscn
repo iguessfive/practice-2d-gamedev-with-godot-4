@@ -18,6 +18,7 @@ position = Vector2(1, 56)
 position = Vector2(13, 5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="Platform004" parent="." instance=ExtResource("2_4uxqt")]
 position = Vector2(-170, 63)
@@ -44,6 +45,25 @@ height = 64.0
 position = Vector2(489, 119)
 width = 512.0
 height = 72.0
+
+[node name="Platform000" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(261, -23)
+
+[node name="Platform005" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(320, -57)
+width = 64.0
+
+[node name="Platform006" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(412, -65)
+width = 32.0
+
+[node name="Platform007" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(474, -65)
+width = 32.0
+
+[node name="Platform008" parent="." instance=ExtResource("2_4uxqt")]
+position = Vector2(535, -65)
+width = 32.0
 
 [editable path="Background"]
 [editable path="Platform001"]
